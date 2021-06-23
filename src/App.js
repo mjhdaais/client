@@ -12,6 +12,7 @@ import { Auth } from "aws-amplify"
 
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
+
 import { Typography } from '@material-ui/core';
 //import classes from '*.module.css';
 
@@ -68,6 +69,7 @@ function App() {
 
     async function onload() {
         try {
+            //await Auth.currentSession().isValid()
             await Auth.currentSession()
             userHasAuthenticated(true)
 

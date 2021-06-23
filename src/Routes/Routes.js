@@ -5,7 +5,33 @@ import NotFound from '../components/NotFound/NotFound'
 import SignIn from '../components/SignIn/SignIn'
 import SignUp from '../components/SignUp/SignUp'
 
-const Home = () => 'Home Page'
+/*import { Auth, API, graphqlOperation } from 'aws-amplify'
+import { createClient } from '../graphql/mutations'
+import { onError } from '../components/libs/errorLib'*/
+
+const Home = () => {
+    {/*async function saveClient() {
+        try {
+            const client = {
+                referalCode: 'clxr3452hs', 
+                status: 'CONTRIBUTOR', 
+                rule: 'RED'
+            }
+        
+            await API.graphql(graphqlOperation(createClient, { input: client }))
+    
+        } catch (e) {
+            onError(e)
+        }
+    }*/}
+
+    return (
+        <>
+            {/*<button onClick={saveClient}>Save Client</button>*/}
+            <h1>Home Page</h1>
+        </>
+    )
+}
 
 export default function Routes(){
     return (

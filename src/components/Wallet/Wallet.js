@@ -1,7 +1,7 @@
 import 'antd/dist/antd.css'
 import './Wallet.css'
-import { Layout, Menu } from 'antd'
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons'
+import { Layout, Menu, Typography, Row, Col, Button } from 'antd'
+import { DashboardOutlined, HistoryOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
 
 const { Header, Content, Footer, Sider } = Layout
 
@@ -11,39 +11,51 @@ function Wallet() {
             <Sider
                 breakpoint="lg"
                 collapsedWidth="0"
-                onBreakpoint={broken => {
-                    console.log(broken);
-                }}
-                onCollapse={(collapsed, type) => {
-                    console.log(collapsed, type);
-                }}
                 style={{
                     height: '100vh'
                 }}
             >
-                <div className="logo">Username</div>
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-                    <Menu.Item key="1" icon={<UserOutlined />}>
-                    nav 1
+                <div className="logo">
+                    <Typography.Text strong className="logo-client-name">
+                        Client's Name
+                    </Typography.Text>
+                </div>
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+                    <Menu.Item key="1" icon={<DashboardOutlined />}>
+                        Dashboard
                     </Menu.Item>
-                    <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                    nav 2
+                    <Menu.Item key="2" icon={<HistoryOutlined />}>
+                        Transaction
                     </Menu.Item>
-                    <Menu.Item key="3" icon={<UploadOutlined />}>
-                    nav 3
+                    <Menu.Item key="3" icon={<SettingOutlined />}>
+                        Settings
                     </Menu.Item>
-                    <Menu.Item key="4" icon={<UserOutlined />}>
-                    nav 4
+                    <Menu.Item key="4" icon={<LogoutOutlined />}>
+                        Sign Out
                     </Menu.Item>
                 </Menu>
             </Sider>
             <Layout>
                 <Header className="site-layout-sub-header-background" style={{ padding: 0 }}>
-                    Revolutional App
+                    <Typography.Text strong style={{color: '#fff', paddingLeft: 19}}>
+                        Revolutional App
+                    </Typography.Text>
                 </Header>
                 <Content style={{ margin: '24px 16px 0' }}>
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                    content
+                        <Row>
+                            <Col span={12}>Stock</Col>
+                            <Col span={12}>Profit</Col>
+                        </Row>
+                        <Row>
+                            <Col span={12}>Referal Bonus</Col>
+                            <Col span={12}>Loss</Col>
+                        </Row>
+                        <Row>
+                            <Col span={24}>
+                                <Button type="primary" block>Buy Stock</Button>
+                            </Col>
+                        </Row>
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>Revolutional App ©{new Date().getFullYear()}</Footer>

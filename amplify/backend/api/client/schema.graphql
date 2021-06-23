@@ -1,0 +1,5 @@
+type Referer @model 
+  @key(name: "refererByCode", fields: ["code"], queryField: "refererByCode") {
+  id: ID!
+  code: String!
+}

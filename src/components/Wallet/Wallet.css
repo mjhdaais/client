@@ -1,7 +1,14 @@
 .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
+  /*height: 32px;*/
+  padding: 21px 29px;
+  /*margin: 16px;*/
+  background: rgb(133, 12, 12);
+  display: flex;
+}
+
+.logo-client-name {
+  color: #fff;
+  align-self: baseline;
 }
 
 /*.site-layout-sub-header-background {
