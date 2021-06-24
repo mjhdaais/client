@@ -111,7 +111,7 @@ const SignUp = () => {
       const isExist = await API.graphql(graphqlOperation(refererByCode, { code: referer }))
       //const isExist = await API.graphql(graphqlOperation(getReferer, { id: referer}))
       
-      if (isExist.data.getReferer === null) {
+      if (isExist.data.refererByCode.items.length === 0) {
         setIsValidating('warning')
         console.log(`${referer} does not exist!`)
 
@@ -142,7 +142,7 @@ const SignUp = () => {
       >
       <Form.Item
           name="referer"
-          label="Referer Phone Number"
+          label="Referer Code"
           tooltip="Who refer you to this platform?"
           validateStatus={isValidating}
           hasFeedback
