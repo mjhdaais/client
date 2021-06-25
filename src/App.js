@@ -69,7 +69,6 @@ function App() {
 
     async function onload() {
         try {
-            //await Auth.currentSession().isValid()
             await Auth.currentSession()
             userHasAuthenticated(true)
 

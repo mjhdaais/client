@@ -1,0 +1,36 @@
+.landing-wrapper {
+    background: #02081f;
+    color: white;
+    height: 100vh;
+}
+
+.landing-header {}
+
+.landing-logo {
+    padding: 1rem;
+    font-weight: 700;
+}
+
+.landing-content {
+    padding: 7rem;
+    text-align: center;
+}
+
+.landing-section {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.landing-attention {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.landing-btn {
+    padding: 0.5rem;
+    background: #d2691e;
+    border: #d2691e;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}

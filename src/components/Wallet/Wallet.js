@@ -2,6 +2,7 @@ import 'antd/dist/antd.css'
 import './Wallet.css'
 import { Layout, Menu, Typography, Row, Col, Button } from 'antd'
 import { DashboardOutlined, HistoryOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
+import shadows from '@material-ui/core/styles/shadows'
 
 const { Header, Content, Footer, Sider } = Layout
 
