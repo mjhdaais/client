@@ -3,7 +3,7 @@ import './SignIn.css'
 import { useState } from 'react';
 import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button, Checkbox, Row, Col } from 'antd'
-import { Typography } from '@material-ui/core'
+//import { Typography } from '@material-ui/core'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 import { Auth } from 'aws-amplify'
@@ -12,24 +12,14 @@ import { onError } from '../libs/errorLib'
 
 const formItemLayout = {
   labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 24,
-    },
+    xs: { span: 24 },
+    sm: { span: 24 },
     md: { span: 6 }
   },
   wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 24,
-    },
-    md: { 
-      span: 16,  
-    }
+    xs: { span: 24 },
+    sm: { span: 24 },
+    md: { span: 16 }
   },
 }
 
@@ -76,7 +66,7 @@ export default function SignIn() {
       try {
         await Auth.signIn(phone, password)
         userHasAuthenticated(true)
-        history.push("/")
+        history.push("/Dashboard")
 
       } catch (e) {
         onError(e)

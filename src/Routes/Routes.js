@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
-import Dashboard from  '../components/Dashboard/Dashboard'
 import NotFound from '../components/NotFound/NotFound'
+import Dashboard from  '../components/Dashboard/Dashboard'
 import SignIn from '../components/SignIn/SignIn'
 import SignUp from '../components/SignUp/SignUp'
 import Landing from '../components/Landing/Landing'

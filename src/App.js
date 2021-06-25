@@ -1,10 +1,10 @@
 import './App.css'
 import { useEffect, useState } from 'react'
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import Routes from './Routes/Routes'
 import { AppContext } from "./components/libs/contextLib"
 
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 ///import Link from '@material-ui/core/Link';
 //import { Link } from 'react-router-dom'
 
@@ -13,13 +13,13 @@ import { Auth } from "aws-amplify"
 import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 
-import { Typography } from '@material-ui/core';
+//import { Typography } from '@material-ui/core';
 //import classes from '*.module.css';
 
 Amplify.configure(awsconfig);
 
 //Temporary Component
-const useStyles = makeStyles(() => ({
+/*const useStyles = makeStyles(() => ({
     wrapper: {
         display: 'flex', 
         justifyContent: 'space-between',
@@ -56,7 +56,7 @@ function ButtonLink() {
     </div>
 
   );
-}
+}*/
 
 function App() {
     const history = useHistory()
@@ -81,22 +81,22 @@ function App() {
         setIsAuthenticating(false)
     }
 
-    async function handleSignOut() {
+    /*async function handleSignOut() {
         await Auth.signOut()
 
         userHasAuthenticated(false)
 
         history.push("/signin")
-    }
+    }*/
 
     return (
         !isAuthenticating && (
             <>
-                {isAuthenticated ? (
+                {/*isAuthenticated ? (
                     <Link to='#' onClick={handleSignOut}>Sign Out</Link>
                 ) : (
                     <ButtonLink />
-                )}
+                )*/}
                 <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
                     <Routes />
                 </AppContext.Provider>

@@ -1,34 +1,23 @@
-import { useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
 import './SignUp.css'
-import { Form, Input, Checkbox, Button } from 'antd'
+import { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { Form, Input, Checkbox, Button } from 'antd'
 import { useAppContext } from '../libs/contextLib'
 import { onError } from "../libs/errorLib"
-
 import { Auth, API, graphqlOperation } from 'aws-amplify'
-import { getReferer, refererByCode } from '../../graphql/queries'
+import { refererByCode } from '../../graphql/queries'
 
 const formItemLayout = {
   labelCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 24,
-    },
+    xs: { span: 24 },
+    sm: { span: 24 },
     md: { span: 6 }
   },
   wrapperCol: {
-    xs: {
-      span: 24,
-    },
-    sm: {
-      span: 24,
-    },
-    md: { 
-      span: 16,  
-    }
+    xs: { span: 24 },
+    sm: { span: 24 },
+    md: { span: 16 }
   },
 }
 
