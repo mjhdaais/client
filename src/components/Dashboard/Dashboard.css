@@ -24,3 +24,8 @@
 [data-theme="dark"] .site-layout-sub-header-background {
     background: #141414;
 }
+
+.dashboard-overview {
+  display: flex;
+  flex-direction: row;
+}

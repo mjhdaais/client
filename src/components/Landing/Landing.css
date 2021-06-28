@@ -1,36 +1,88 @@
 .landing-wrapper {
-    background: #02081f;
-    color: white;
-    height: 100vh;
+    /*background: #02081f;
+    color: white;*/
+
+    /* TO BE REVIEWED
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    */
+    background-color: #fff;
+    color: #02081f;
+    font-size: 100%;
+    text-align: center;
+    padding: 0 10px;
 }
 
-.landing-header {}
+/*.landing-wrapper * { border: 1px solid rgb(173, 161, 161);}*/
+
+.landing-header {
+    margin: 0 0 7em 0;
+    padding: 1em 0;
+    text-align: left;
+}
 
 .landing-logo {
-    padding: 1rem;
     font-weight: 700;
 }
 
 .landing-content {
+    /*max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
     padding: 7rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+    width: 980px;
+    margin: auto;
 }
 
 .landing-section {
-    padding: 1rem;
-    font-size: 1rem;
+    /*padding: 1rem;
+    font-size: 1rem;*/
+    margin-bottom: 3em;
 }
 
 .landing-attention {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2em;
+    margin-bottom: 2em;
 }
 
 .landing-btn {
-    padding: 0.5rem;
+    margin-top: 3em;
+    padding: 0.5em 1em;
     background: #d2691e;
+    color: rgb(247, 242, 242);
+    font-weight: 700;
     border: #d2691e;
     border-radius: 2px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     cursor: pointer;
+}
+
+@media (max-width: 980px) {
+    .landing-content {
+        width: 78.36%;
+    }
+}
+
+@media (max-width: 768px) {
+    .landing-content {
+        width: 83.33%;
+    }
+}
+
+@media (max-width: 640px) {
+    .landing-content {
+        width: 98.43%;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-content {
+        width: 97.91%;
+    }
 }

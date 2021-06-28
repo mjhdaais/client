@@ -3,7 +3,7 @@ import './Dashboard.css'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Auth } from 'aws-amplify'
-import { Layout, Menu, Typography, Row, Col, Button } from 'antd'
+import { Layout, Menu, Typography, Row, Col, Button, Progress } from 'antd'
 import { DashboardOutlined, HistoryOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
 
 const { Header, Content, Footer, Sider } = Layout
@@ -75,7 +75,7 @@ function Dashboard() {
                     </Typography.Text>
                 </Header>
                 <Content style={{ margin: '24px 16px 0' }}>
-                    <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+                    <div className="site-layout-background" style={{ padding: 24, minHeight: 320 }}>
                         {/*<Row>
                             <Col span={12}>Stock</Col>
                             <Col span={12}>Profit</Col>
@@ -89,6 +89,31 @@ function Dashboard() {
                                 <Button type="primary" block>Buy Stock</Button>
                             </Col>
                         </Row>*/}
+                        <div className="dashboard-overview">
+                            <div className="lside">
+                                <div className="cntr">
+                                    <p>Contribution</p>
+                                    <p>N0.00</p>
+                                </div>
+                                <div className="refb">
+                                    <p>Referal Bonus</p>
+                                    <p>N0.00</p>
+                                </div>
+                                <div className="refc">
+                                    <p>Referal Code</p>
+                                    <p>CLNT00000000</p>
+                                </div>
+                            </div>
+                            <div className="rside">
+                                <div className="blnc">
+                                    <p>Balance</p>
+                                    <p>N0.00</p>
+                                </div>
+                                <div className="prgr">
+                                    <Progress type="circle" percent={60} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </Content>
                 <Footer style={{ textAlign: 'center' }}>Revolutional App ©{new Date().getFullYear()}</Footer>
