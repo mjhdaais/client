@@ -9,6 +9,23 @@ export const createReferer = /* GraphQL */ `
     createReferer(input: $input, condition: $condition) {
       id
       code
+      referents {
+        items {
+          id
+          referalCode
+          accountNumber
+          accountName
+          bankName
+          phoneNumber
+          status
+          rule
+          contribution
+          referalBonus
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -22,6 +39,23 @@ export const updateReferer = /* GraphQL */ `
     updateReferer(input: $input, condition: $condition) {
       id
       code
+      referents {
+        items {
+          id
+          referalCode
+          accountNumber
+          accountName
+          bankName
+          phoneNumber
+          status
+          rule
+          contribution
+          referalBonus
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -35,6 +69,113 @@ export const deleteReferer = /* GraphQL */ `
     deleteReferer(input: $input, condition: $condition) {
       id
       code
+      referents {
+        items {
+          id
+          referalCode
+          accountNumber
+          accountName
+          bankName
+          phoneNumber
+          status
+          rule
+          contribution
+          referalBonus
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createClient = /* GraphQL */ `
+  mutation CreateClient(
+    $input: CreateClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    createClient(input: $input, condition: $condition) {
+      id
+      referer {
+        id
+        code
+        referents {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      referalCode
+      accountNumber
+      accountName
+      bankName
+      phoneNumber
+      status
+      rule
+      contribution
+      referalBonus
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateClient = /* GraphQL */ `
+  mutation UpdateClient(
+    $input: UpdateClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    updateClient(input: $input, condition: $condition) {
+      id
+      referer {
+        id
+        code
+        referents {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      referalCode
+      accountNumber
+      accountName
+      bankName
+      phoneNumber
+      status
+      rule
+      contribution
+      referalBonus
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteClient = /* GraphQL */ `
+  mutation DeleteClient(
+    $input: DeleteClientInput!
+    $condition: ModelClientConditionInput
+  ) {
+    deleteClient(input: $input, condition: $condition) {
+      id
+      referer {
+        id
+        code
+        referents {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      referalCode
+      accountNumber
+      accountName
+      bankName
+      phoneNumber
+      status
+      rule
+      contribution
+      referalBonus
       createdAt
       updatedAt
     }

@@ -2,4 +2,21 @@ type Referer @model
   @key(name: "refererByCode", fields: ["code"], queryField: "refererByCode") {
   id: ID!
   code: String!
+  referents: [Client] @connection(name: "Referents")
+}
+
+type Client @model 
+  @auth(rules: [{ allow: owner }])
+  @key(name: "clientByReferalCode", fields: ["referalCode"], queryField: "clientByReferalCode") {
+  id: ID!
+  referer: Referer @connection(name: "Referents")
+  referalCode: String!
+  accountNumber: String
+  accountName: String
+  bankName: String
+  phoneNumber: String
+  status: String!
+  rule: String!
+  contribution: Float!
+  referalBonus: Float!
 }

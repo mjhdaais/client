@@ -19,7 +19,10 @@
   background: #fff;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   border-radius: 3px;
+  border: 1px solid goldenrod;
 }
+
+.site-layout-background * {border: 1px solid goldenrod;}
 
 [data-theme="dark"] .site-layout-sub-header-background {
     background: #141414;
@@ -28,4 +31,17 @@
 .dashboard-overview {
   display: flex;
   flex-direction: row;
+  font-size: 100%;
+}
+
+.dashboard-overview p:nth-child(2) {
+  font-size: 30px;
+}
+
+.lside, .rside {
+  width: 50%;
+}
+
+.actions {
+  display: flex;
 }

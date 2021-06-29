@@ -18,24 +18,15 @@ const formItemLayout = {
     xs: { span: 24 },
     sm: { span: 24 },
     md: { span: 16 }
-  },
+  }
 }
 
 const tailFormItemLayout = {
   wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 16,
-      offset: 0,
-    },
-    md: {
-      span: 16,
-      offset: 6,
-    }
-  },
+    xs: { span: 24, offset: 0 },
+    sm: { span: 16, offset: 0 },
+    md: { span: 16, offset: 6 }
+  }
 }
 
 

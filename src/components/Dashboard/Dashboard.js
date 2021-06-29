@@ -2,7 +2,9 @@ import 'antd/dist/antd.css'
 import './Dashboard.css'
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { Auth } from 'aws-amplify'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
+import { createReferer, createClient} from '../../graphql/mutations'
+import { clientByReferalCode } from '../../graphql/queries'
 import { Layout, Menu, Typography, Row, Col, Button, Progress } from 'antd'
 import { DashboardOutlined, HistoryOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
 
@@ -10,19 +12,65 @@ const { Header, Content, Footer, Sider } = Layout
 
 function Dashboard() {
     const history = useHistory()
-    const [clientName, setclientName] = useState('')
+    const [clientName, setclientName] = useState('Welcome!')
 
     useEffect(() => {
         onLoad()
     }, [])
 
+    const refererObject = (referalCode) => { return {code: referalCode} }
+
+    const clientObject = (refererCode, referalCode, phoneNumber) => {
+        return {
+            clientRefererId: refererCode,
+            referalCode: referalCode, 
+            accountNumber: '',
+            accountName: '',
+            bankName: '',
+            phoneNumber: phoneNumber,
+            status: 'CONTRIBUTOR',
+            rule: 'GREEN',
+            contribution: 0.00,
+            referalBonus: 0.00
+        }
+    }
+
+    const referalCodeGenerator = (phoneNumber) => {
+        let code = 'clnt'
+        code += phoneNumber.substring(6)
+        return code
+    }
+
     async function onLoad() {
         try {
             const { attributes } = await Auth.currentAuthenticatedUser()
-            //console.log(attributes.phone_number)
-            setclientName(attributes.phone_number)
+            // console.log(attributes['custom:referer'])
+            const refererCode = attributes['custom:referer']
+            const phoneNumber = attributes['phone_number']
+            const referalCode = referalCodeGenerator(attributes['phone_number'])
+            const client = await API.graphql(graphqlOperation(clientByReferalCode, { referalCode: referalCode }))
+
+            if (client['data']['clientByReferalCode']['items'].length === 0) {
+                try {
+                    // Creat Client's Referer Table
+                    await API.graphql(graphqlOperation(createReferer, { input: refererObject(referalCode) }))
+
+                    // Creat Client Table
+                    await API.graphql(graphqlOperation(createClient, { input: clientObject(refererCode, referalCode, phoneNumber) }))
+                } catch (error) {
+                    console.log('Error: ', error)
+                }
+            }
+            // console.log(client['data']['clientByReferalCode']['items'].length === 0)
+            // console.log(client)
+            // console.log(refererObject(code))
+            
+            // console.log(referalCodeGenerator(attributes.phone_number))
+            //setclientName(attributes.phone_number)
+            // await API.graphql(graphqlOperation(createReferer, { input: refererValue }))
+            // await API.graphql(graphqlOperation(createClient, { input: clientValue }))
         } catch (error) {
-            console.log('error getting attributes: ', error)
+            console.log('Error: ', error)
         }
     }
 
@@ -93,11 +141,11 @@ function Dashboard() {
                             <div className="lside">
                                 <div className="cntr">
                                     <p>Contribution</p>
-                                    <p>N0.00</p>
+                                    <p>N2000.00</p>
                                 </div>
                                 <div className="refb">
                                     <p>Referal Bonus</p>
-                                    <p>N0.00</p>
+                                    <p>N200.00</p>
                                 </div>
                                 <div className="refc">
                                     <p>Referal Code</p>
@@ -107,11 +155,19 @@ function Dashboard() {
                             <div className="rside">
                                 <div className="blnc">
                                     <p>Balance</p>
-                                    <p>N0.00</p>
+                                    <p>N2200.00</p>
                                 </div>
                                 <div className="prgr">
                                     <Progress type="circle" percent={60} />
                                 </div>
+                            </div>
+                        </div>
+                        <div className="actions">
+                            <div className="btn-01">
+                                <Button>Make Contribution</Button>
+                            </div>
+                            <div className="btn-02">
+                                <Button>Activities</Button>
                             </div>
                         </div>
                     </div>
